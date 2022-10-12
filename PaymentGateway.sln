@@ -1,0 +1,48 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32804.467
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.API", "PaymentGateway.API\PaymentGateway.API.csproj", "{7B1562D2-745D-4912-8755-CBC203EB2824}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.Core", "PaymentGateway.Core\PaymentGateway.Core.csproj", "{0443A0E5-24FC-474A-BE4F-8653127BB9EA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaymentGateway.Infrastructure", "PaymentGateway.Infrastructure\PaymentGateway.Infrastructure.csproj", "{67331FDA-CCD4-498B-A949-997BB85C16A7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{261C8202-690D-45C9-A6A4-8107376435F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaymentGateway.Tests", "PaymentGateway.Tests\PaymentGateway.Tests.csproj", "{BAB85D4B-F69C-4417-80DD-81238B9B3487}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B1562D2-745D-4912-8755-CBC203EB2824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B1562D2-745D-4912-8755-CBC203EB2824}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B1562D2-745D-4912-8755-CBC203EB2824}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B1562D2-745D-4912-8755-CBC203EB2824}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0443A0E5-24FC-474A-BE4F-8653127BB9EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0443A0E5-24FC-474A-BE4F-8653127BB9EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0443A0E5-24FC-474A-BE4F-8653127BB9EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0443A0E5-24FC-474A-BE4F-8653127BB9EA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67331FDA-CCD4-498B-A949-997BB85C16A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67331FDA-CCD4-498B-A949-997BB85C16A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67331FDA-CCD4-498B-A949-997BB85C16A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67331FDA-CCD4-498B-A949-997BB85C16A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BAB85D4B-F69C-4417-80DD-81238B9B3487}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BAB85D4B-F69C-4417-80DD-81238B9B3487}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BAB85D4B-F69C-4417-80DD-81238B9B3487}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BAB85D4B-F69C-4417-80DD-81238B9B3487}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{BAB85D4B-F69C-4417-80DD-81238B9B3487} = {261C8202-690D-45C9-A6A4-8107376435F6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D3EC35DB-6028-4CAA-9B2A-897B3FC42E99}
+	EndGlobalSection
+EndGlobal

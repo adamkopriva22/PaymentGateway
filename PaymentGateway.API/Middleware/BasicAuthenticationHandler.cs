@@ -1,0 +1,53 @@
+﻿using Microsoft.AspNetCore.Authentication;
+using Microsoft.Extensions.Options;
+using System.Security.Claims;
+using System.Text.Encodings.Web;
+using System.Text;
+using PaymentGateway.Core.Interfaces;
+
+namespace PaymentGateway.API.Middleware
+{
+    public class BasicAuthenticationHandler : AuthenticationHandler<AuthenticationSchemeOptions>
+    {
+        private readonly IIdentityProvider identityProvider;
+
+        public BasicAuthenticationHandler(
+            IOptionsMonitor<AuthenticationSchemeOptions> options,
+            ILoggerFactory logger,
+            UrlEncoder encoder,
+            ISystemClock clock,
+            IIdentityProvider identityProvider
+            ) : base(options, logger, encoder, clock)
+        {
+            this.identityProvider = identityProvider;
+        }
+
+        protected override Task<AuthenticateResult> HandleAuthenticateAsync()
+        {
+            var authHeader = Request.Headers["Authorization"].ToString();
+            if (authHeader != null && authHeader.StartsWith("basic", StringComparison.OrdinalIgnoreCase))
+            {
+                var token = authHeader.Substring("Basic ".Length).Trim();
+
+                var credentialsData = Encoding.UTF8.GetString(Convert.FromBase64String(token));
+                var credentials = credentialsData.Split(':');
+
+                var client = identityProvider.GetClient(credentials[0], credentials[1]);
+                if (client != null)
+                {
+                    var claims = new[] { new Claim("name", client.Id), new Claim(ClaimTypes.Role, "Client") };
+                    var identity = new ClaimsIdentity(claims, "Basic");
+                    var claimsPrincipal = new ClaimsPrincipal(identity);
+                    return Task.FromResult(AuthenticateResult.Success(new AuthenticationTicket(claimsPrincipal, Scheme.Name)));
+                }
+
+                Response.StatusCode = 401;
+                return Task.FromResult(AuthenticateResult.Fail("Invalid Authorization Header"));
+            }
+
+            Response.StatusCode = 401;
+            return Task.FromResult(AuthenticateResult.Fail("Invalid Authorization Header"));
+            
+        }
+    }
+}
